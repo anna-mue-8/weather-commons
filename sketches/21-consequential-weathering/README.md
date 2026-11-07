@@ -2,7 +2,7 @@
 
 Author: Anna-Lena Mueller · Started: 2026-11-07 · Status: sketch · Stack: static HTML + JS
 
-This sketch asks which consequences of weathering get monitored and recorded, and which are left out. It is a first page from the template, and the question is a draft.
+Before asking who has the right to change the weather, this sketch asks who is already interfering with it at large scales, starting with extractive open-pit mines flooded with river or groundwater. It will simulate how these sites interfere with the atmosphere across vertical scales, and argue that a weather commons must address this too.
 
 ## Run
 
@@ -19,11 +19,13 @@ Then open http://localhost:8000.
 
 ## 1. Event
 
-Weathering: how weather slowly wears down places, materials and lives. The specific event, place and time are still to be chosen.
+Extractive open-pit mining, especially pits flooded with river or groundwater. The sites, places and dates are still to be chosen.
+
+Working question (interpretive, a draft): When we ask ‘Who has the right to control and change the weather?’, we should ask ‘Who is already interfering in the weather at large scales?’ Because can we really achieve and talk about a weather commons, if all systems it is entangled with are extracted and manipulated across scales?
 
 ## 2. Simulate
 
-What does the model or visualization calculate? What goes in, what rules does it follow, and what comes out?
+Planned: how flooded and dry open pits interfere with the atmosphere across vertical scales, from the ground surface up through the layers of air above. Not built yet; the page still shows the synthetic template placeholder.
 
 ## 3. Situate
 
@@ -38,7 +40,7 @@ The story in a few sentences. What can a viewer learn here, and what should they
 For every dataset: who made it, which version and date, when you downloaded it, its licence, and what you changed. Say whether each layer is observed, reanalysed, modelled, synthetic or interpretive. Then say what this sketch cannot show.
 
 - Moving dots in `index.html`: synthetic. A steady east wind made up for the starter template, not a model of a real place. To be replaced.
-- The question on the page: interpretive, a first draft.
+- The question on the page: interpretive, a working draft.
 - No observed, reanalysed or modelled data yet.
 
 What this sketch cannot show yet: any real weather event, place or effect.
