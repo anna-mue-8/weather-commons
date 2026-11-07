@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>21 · consequential weathering · Realtime Weather</title>
+<!-- style.css is the shared Realtime Weather look, copied into this folder. Add your own styles below it. -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header class="site-header">
+  <div class="brand"><a class="wordmark" href="../">Realtime Weather</a><span class="tagline">Part of <a href="https://tba21.org/uni_weathercommons">Weather Commons</a>, TBA21–Academy UNI</span></div>
+  <nav aria-label="Site">
+    <a href="../">Sketches</a>
+    <a href="../guide/">Guide</a>
+    <a href="../catalog/">Catalog</a>
+    <a href="https://github.com/RealtimeUrbanismLab/weather-commons/blob/main/CONTRIBUTING.md">Contribute</a>
+    <a href="https://community.ocean-archive.org/spaces/25478985">Community</a>
+  </nav>
+</header>
+
+<h1>consequential weathering</h1>
+
+<!-- 1. Event: what are you looking at, and what do you want to find out? -->
+<p class="lede">When weather wears down a place, its materials and the people who live there, which of these consequences get monitored and recorded, and which are left out?</p>
+<p class="muted small">21 · Anna-Lena Mueller · started 2026-11-07</p>
+
+<!-- 2. Simulate: a first model. This placeholder shows dots drifting in one steady wind. -->
+<h2>Simulate</h2>
+<canvas id="view" width="1200" height="600"></canvas>
+<p class="label">Synthetic: a steady east wind, made up for this template. Not observed data.</p>
+
+<!-- 3. Situate: where, when, who. Add a map, places, institutions, dates. -->
+<h2>Situate</h2>
+<p>Where and when does this happen? Who runs it, who is affected, and who decides?</p>
+
+<!-- 4. Narrate: the story in a few sentences, and what the model cannot show. -->
+<h2>Narrate</h2>
+<p>Tell the story in a few sentences.</p>
+
+<h2>Sources and limits</h2>
+<ul>
+  <li>Moving dots under Simulate: synthetic. A steady east wind, made up for the template. A placeholder, not a model of any real place.</li>
+  <li>The question above: interpretive. A first draft, to be rewritten.</li>
+  <li>No observed, reanalysed or modelled data yet. Each dataset will be listed here with who made it, when, its licence and what kind of material it is.</li>
+</ul>
+<p>What this sketch cannot show yet: any real weather event, place or effect. Everything on this page is a starting point.</p>
+
+<footer class="site-footer">
+  <p>consequential weathering · Anna-Lena Mueller · Realtime Weather working group, Weather Commons</p>
+</footer>
+</main>
+<script>
+  // A tiny simulation: dots carried by a steady wind, with a little random spread.
+  // Replace it with your own model. Load your own files with relative paths, e.g. fetch('data/my-file.json').
+  const canvas = document.getElementById('view');
+  const ctx = canvas.getContext('2d');
+  const ink = getComputedStyle(document.body).color;           // black, or white in dark mode
+  const paper = getComputedStyle(document.body).backgroundColor;
+  const wind = { east: 1.2, north: 0.2 }; // pixels per frame (synthetic)
+  const spread = 0.6;                      // random wobble per frame
+  const dots = Array.from({ length: 1500 }, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height }));
+
+  function step() {
+    ctx.globalAlpha = 0.15;                // fade old positions into trails
+    ctx.fillStyle = paper;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = ink;
+    for (const d of dots) {
+      d.x = (d.x + wind.east + (Math.random() - 0.5) * spread + canvas.width) % canvas.width;
+      d.y = (d.y - wind.north + (Math.random() - 0.5) * spread + canvas.height) % canvas.height;
+      ctx.fillRect(d.x, d.y, 2, 2);
+    }
+    requestAnimationFrame(step);
+  }
+  step();
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "sketch": "21-consequential-weathering",
+  "note": "Large, raw and licensed files live on Box (2026 Realtime Weather), not in git. Lab members add them with: node scripts/assets.mjs add 21 <path>.",
+  "items": []
+}
