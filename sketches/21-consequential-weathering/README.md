@@ -21,7 +21,7 @@ Then open http://localhost:8000.
 
 Extractive open-pit mining, especially pits flooded with river or groundwater. The sites, places and dates are still to be chosen.
 
-Working question (interpretive, a draft): When we ask ‘Who has the right to control and change the weather?’, we should ask ‘Who is already interfering in the weather at large scales?’ Because can we really achieve and talk about a weather commons, if all systems it is entangled with are extracted and manipulated across scales?
+Working question (interpretive, a draft): When we ask ‘Who has the right to control and change the weather?’, we should also ask ‘Who is already interfering in the weather at large scales?’ Because can we really achieve and talk about a weather commons, if all systems it is entangled with are extracted and manipulated across scales?
 
 ## 2. Simulate
 
