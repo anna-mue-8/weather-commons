@@ -1,0 +1,139 @@
+/* Realtime Weather: one look for the site's pages (front page, guide, catalog) and new sketches.
+   Black and white, system fonts, light and dark. new-sketch.mjs copies this file into each new
+   sketch, so a sketch keeps working on its own. */
+
+:root {
+  --fg: #000; --bg: #fff; --muted: #555; --line: #000; --soft: #f2f2f2;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --text: 44rem;
+  --wide: 68rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --fg: #fff; --bg: #000; --muted: #aaa; --line: #fff; --soft: #161616; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; } /* short and long pages line up */
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.55 var(--font); }
+/* Every page has the same frame, so the header and footer never move. Content keeps a
+   reading width inside it, left-aligned; the header, footer and front-page cards span the frame. */
+main { max-width: var(--wide); margin: 0 auto; padding: 0 16px 80px; }
+main > * { max-width: var(--text); }
+main > .site-header, main > .site-footer, main > .cards, main > .full { max-width: none; }
+a { color: inherit; text-underline-offset: 2px; overflow-wrap: anywhere; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Header and footer, the same on every page */
+.site-header {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px;
+  border-bottom: 1px solid var(--line); padding: 20px 0 12px; margin-bottom: 40px;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.wordmark { font-weight: 700; text-transform: uppercase; letter-spacing: .02em; text-decoration: none; }
+.tagline { font-size: 13px; color: var(--muted); }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.site-header nav a, .label, h2 {
+  font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+}
+.site-header nav a { text-decoration: none; }
+.site-header nav a:hover, .site-header nav a[aria-current="page"] { text-decoration: underline; }
+.site-footer { margin-top: 72px; border-top: 1px solid var(--line); padding-top: 12px; font-size: 14px; color: var(--muted); }
+.site-footer p { margin: 4px 0; }
+
+/* Type */
+h1 { font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -.015em; margin: 0 0 12px; }
+h2 { margin: 56px 0 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+h3 { font-size: 17px; margin: 28px 0 4px; }
+p, li { max-width: 40rem; }
+.lede { font-size: 20px; line-height: 1.45; }
+.muted { color: var(--muted); }
+.small { font-size: 15px; }
+.question, .part { font-weight: 600; }
+.gloss { color: var(--muted); font-size: 15px; }
+.note { border: 1px solid var(--line); padding: 12px 16px; margin: 20px 0; }
+.note p { margin: 4px 0; }
+.toc { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 15px; margin: 16px 0 0; padding: 0; list-style: none; }
+code { font-family: var(--mono); font-size: .88em; background: var(--soft); padding: 1px 4px; overflow-wrap: anywhere; }
+table { border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+th, td { border: 1px solid var(--line); padding: 4px 12px; text-align: left; }
+dl dt { font-weight: 600; margin-top: 16px; }
+dl dd { margin: 2px 0 0; }
+
+/* A big link, such as the catalog's main source */
+.primary { display: block; border: 1px solid var(--line); padding: 16px; margin: 16px 0; text-decoration: none; }
+.primary:hover { background: var(--fg); color: var(--bg); }
+.primary strong { display: block; font-size: 19px; }
+
+/* Front page: sketch cards */
+.cards { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 32px 24px; }
+.cards li { max-width: none; }
+.card { display: flex; flex-direction: column; gap: 4px; text-decoration: none; border-top: 1px solid var(--line); padding-top: 12px; }
+.card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; filter: grayscale(1); margin-bottom: 8px; }
+.card:hover .title { text-decoration: underline; }
+.card .nn { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.card .title { font-size: 20px; font-weight: 700; line-height: 1.25; }
+.card .summary { font-size: 15px; }
+.cards .meta { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+
+/* Guide: numbered steps, copyable code, tabs, form fields */
+ol.steps { list-style: none; padding: 0; margin: 16px 0 0; counter-reset: step; }
+ol.steps > li { counter-increment: step; position: relative; padding: 0 0 20px 44px; }
+ol.steps > li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  width: 28px; height: 28px; border: 1.5px solid var(--line); border-radius: 50%;
+  display: grid; place-items: center; font-size: 14px; font-weight: 600;
+}
+.ok { font-size: 15px; }
+.ok::before { content: "You should see: "; font-weight: 600; }
+.code { position: relative; margin: 8px 0; }
+.code pre {
+  margin: 0; padding: 12px 72px 12px 14px; background: var(--soft); border: 1px solid var(--line);
+  font: 14px/1.5 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.code button, .tabs button {
+  font: 14px var(--font); padding: 4px 12px; cursor: pointer; background: var(--bg); color: var(--fg); border: 1px solid var(--line);
+}
+.code button { position: absolute; top: 6px; right: 6px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0; }
+.fields label { font-size: 13px; color: var(--muted); display: block; }
+.fields input { width: 100%; font: 15px var(--font); padding: 6px 8px; margin-top: 2px; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 0; }
+.tabs { display: flex; margin: 16px 0 0; }
+.tabs button { padding: 6px 16px; }
+.tabs button + button { border-left: 0; }
+.tabs button[aria-selected="true"] { background: var(--fg); color: var(--bg); }
+.tabpanel { border: 1px solid var(--line); border-top: 0; padding: 4px 16px 8px; }
+.tabpanel[hidden] { display: none; }
+dl.trouble .ask { display: block; margin-top: 6px; font-size: 15px; }
+
+/* Sketch pages */
+canvas { display: block; width: 100%; border: 1px solid var(--line); }
+.label { margin: 8px 0 0; }
+
+#handout { display: none; }
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  h1 { font-size: 28px; }
+  .lede { font-size: 18px; }
+  .code pre { padding: 40px 12px 12px; }
+  ol.steps > li { padding-left: 38px; }
+}
+
+/* Print. The guide prints as a one-page checklist (#handout); other pages print as they are. */
+@media print {
+  :root { --fg: #000; --bg: #fff; --muted: #333; --line: #000; --soft: #fff; }
+  .site-header nav, .code button { display: none; }
+  body:has(#handout) main > *:not(#handout) { display: none !important; }
+  @page { size: A4; margin: 12mm 14mm; }
+  body:has(#handout) { font-size: 10pt; line-height: 1.35; }
+  #handout { display: block; }
+  #handout h1 { font-size: 17pt; margin: 0 0 2pt; }
+  #handout h2 { font-size: 11pt; margin: 9pt 0 3pt; padding-top: 4pt; border-top: 1pt solid #000; }
+  #handout p { margin: 2pt 0; max-width: none; }
+  #handout ul { list-style: none; padding: 0; margin: 0; }
+  #handout li { padding-left: 16pt; position: relative; margin: 2.5pt 0; max-width: none; }
+  #handout li::before { content: ""; position: absolute; left: 0; top: 1.5pt; width: 8pt; height: 8pt; border: 1pt solid #000; }
+  #handout code { background: none; padding: 0; font-size: 9pt; }
+  #handout .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14pt; }
+  #handout .blank { display: inline-block; min-width: 110pt; border-bottom: .75pt solid #000; }
+}
