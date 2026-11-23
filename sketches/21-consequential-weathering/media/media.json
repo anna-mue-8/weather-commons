@@ -1,0 +1,90 @@
+[
+  {
+    "page": "a1",
+    "type": "photo",
+    "src": "media/a1-gdr-economy-1959-elbe-watershed.jpg",
+    "caption": "Map of the GDR’s economy from 1959, found in my grandfather’s old GDR atlas. Published by Volk und Wissen Volkseigener Verlag Berlin, 1959. Overlaid with a diagram of the Elbe watershed (thick black line) and a pink box marking the location of Schwarze Pumpe within a big geological lignite field by Anna-Lena Mueller, 2026.",
+    "alt": "Map 'Deutsche Demokratische Republik: Wirtschaft' from a 1959 atlas, with the Elbe watershed drawn as a thick black line and a pink box around Schwarze Pumpe in the Lusatian lignite field.",
+    "kind": "cartographic, with an interpretive overlay"
+  },
+  {
+    "page": "a2",
+    "type": "video",
+    "src": "media/a2-kraftwerk-schwarze-pumpe-wolkenberg-2014.webm",
+    "caption": "Kraftwerk Schwarze Pumpe, Spremberg, filmed from the Wolkenberg viewpoint on 30 August 2014.",
+    "alt": "Video of the Schwarze Pumpe power station with clouds rising from its cooling towers, filmed from the Wolkenberg viewpoint.",
+    "kind": "observed",
+    "credit": "Video: Ubahnverleih, via Wikimedia Commons",
+    "date": "2014-08-30",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+    "changes": "not changed",
+    "source": "https://commons.wikimedia.org/wiki/File:Kraftwerk_Schwarze_Pumpe_-_Video.webm"
+  },
+  {
+    "page": "a2",
+    "type": "photo",
+    "src": "media/a2-instagram-blitz-kaiser-2025.png",
+    "caption": "Instagram post by blitz.kaiser about Schwarze Pumpe, 20 June 2025.",
+    "alt": "Screenshot of an Instagram post: a photograph of the two cooling towers of Schwarze Pumpe releasing clouds behind houses, with a long caption calling the power station a myth, a symbol and a giant monster.",
+    "kind": "quoted",
+    "credit": "Credit to come"
+  },
+  {
+    "page": "a2",
+    "type": "photo",
+    "src": "media/a2-instagram-felix89-dd-2020.png",
+    "caption": "Instagram post by felix89_dd: ‘Wolken-Produktionsstätte Schwarze Pumpe’ (cloud production site Schwarze Pumpe), 12 October 2020.",
+    "alt": "Screenshot of an Instagram post: a sunset photograph of a huge cloud rising from the cooling towers of Schwarze Pumpe, captioned 'Wolken-Produktionsstätte Schwarze Pumpe'.",
+    "kind": "quoted",
+    "credit": "Credit to come"
+  },
+  {
+    "page": "a3",
+    "type": "article",
+    "src": "media/a3-weathercom-2019-03-13-coal-plants-rainfall.jpg",
+    "headline": "Coal-Fired Power Plants Can Change Rainfall Patterns, 15-Year Study Says",
+    "caption": "Reports a study by Wolfgang Junkermann and Jorg Hacker (Bulletin of the American Meteorological Society), whose research aircraft flew downwind of power stations in dozens of countries: modern coal plants, through their filter systems, emit more ultrafine particles than road traffic. The particles add condensation nuclei and can shift rainfall locally and regionally, perhaps even intensify rain.",
+    "alt": "Screen grab of the Weather Channel article 'Coal-Fired Power Plants Can Change Rainfall Patterns, 15-Year Study Says'.",
+    "kind": "quoted",
+    "credit": "Pam Wright, The Weather Channel",
+    "date": "2019-03-13",
+    "source": "https://weather.com/science/environment/news/2019-03-13-coal-power-plants-rainfall-patterns"
+  },
+  {
+    "page": "a3",
+    "type": "article",
+    "src": "media/a3-dwd-2018-02-05-wettermaschinen-teil-1.jpg",
+    "headline": "Kohlekraftwerke – kleine „Wettermaschinen“ (Teil 1)",
+    "caption": "The German weather service explains that beyond their CO₂, coal power stations change today’s weather locally: the warm, saturated air from the cooling towers forms plumes, can break through inversions above low fog, and on calm frosty days can even let ‘industrial snow’ fall near the plant.",
+    "alt": "Screen grab of the DWD Thema des Tages 'Kohlekraftwerke – kleine Wettermaschinen (Teil 1)', 5 February 2018.",
+    "kind": "quoted",
+    "credit": "Markus Übel, Deutscher Wetterdienst, Thema des Tages",
+    "date": "2018-02-05",
+    "source": "https://www.dwd.de/DE/wetter/thema_des_tages/2018/2/5.html"
+  },
+  {
+    "page": "a3",
+    "type": "article",
+    "src": "media/a3-dwd-2018-02-06-wettermaschinen-teil-2.jpg",
+    "headline": "Kohlekraftwerke – kleine „Wettermaschinen“ (Teil 2)",
+    "caption": "In unstable, showery air the cooling-tower plume can act as a ‘trigger’ for showers. Radar images of 2 February 2018 and 8 December 2017 show showers starting at, strengthening at and lining up behind the Niederaußem power station near Cologne.",
+    "alt": "Screen grab of the DWD Thema des Tages 'Kohlekraftwerke – kleine Wettermaschinen (Teil 2)', 6 February 2018.",
+    "kind": "quoted",
+    "credit": "Markus Übel, Deutscher Wetterdienst, Thema des Tages",
+    "date": "2018-02-06",
+    "source": "https://www.dwd.de/DE/wetter/thema_des_tages/2018/2/6.html"
+  },
+  {
+    "page": "a3",
+    "type": "article",
+    "src": "media/a3-jaxa-2021-09-28-floods-germany-belgium.jpg",
+    "headline": "The floods caused by heavy rainfall in Germany and Belgium – increase of heavy rainfall under climate change",
+    "caption": "JAXA’s satellite rain data (GSMaP, GPM) show that western Germany and Belgium received more than 75 mm in three days, 12–14 July 2021, about as much as a normal July brings in a whole month. JAXA links such extremes to the IPCC’s finding (AR6, 2021) that heavy rainfall is becoming more frequent and intense, and calls for continued observation from space.",
+    "alt": "Screen grab of the JAXA Earth-graphy article on the July 2021 floods in Germany and Belgium, with a satellite rainfall map of Europe.",
+    "kind": "quoted",
+    "credit": "JAXA Earth Observation Research Center, Earth-graphy",
+    "date": "2021-09-28",
+    "source": "https://earth.jaxa.jp/en/earthview/2021/09/28/6341/index.html"
+  }
+]

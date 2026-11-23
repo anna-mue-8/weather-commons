@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>21 · consequential weathering / earthly atmospheres · Realtime Weather</title>
+<!-- style.css is the shared Realtime Weather look, copied into this folder. essay.css lays out the visual essay. -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="essay.css">
+<!-- Open Sans, the font of the labels in Anna-Lena's QGIS map (A · III) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+</head>
+<body>
+<div class="essay">
+
+<header class="bar">
+  <div class="brand"><a class="wordmark" href="../">Realtime Weather</a><span class="tagline">Part of <a href="https://tba21.org/uni_weathercommons">Weather Commons</a>, TBA21–Academy UNI</span></div>
+  <nav aria-label="Site">
+    <a href="../">Sketches</a>
+    <a href="../guide/">Guide</a>
+    <a href="../catalog/">Catalog</a>
+  </nav>
+</header>
+
+<nav class="contents" aria-label="Contents">
+  <button id="contents-toggle" class="contents-toggle" type="button" aria-expanded="false">Contents</button>
+  <ol id="toc"></ol>
+</nav>
+
+<main class="pages">
+
+<!-- Each <section> is one page of the essay, shown one at a time: a text box (left), an archive box for
+     small images under it (filled from media/media.json), and a visual (right).
+     data-toc is its name in the contents on the left. To add a page, copy a section. -->
+
+<!-- Start -->
+<section class="page start" id="start" data-toc="Start" data-group="start">
+  <div class="text">
+    <p class="kicker">21 · Anna-Lena Mueller</p>
+    <h1>consequential weathering / earthly atmospheres</h1>
+    <p class="lede">When we ask ‘Who has the right to control and change the weather?’, we should also ask ‘Who is already interfering with, and in, the weather at large scales?’</p>
+    <p>Can we really achieve and talk about a weather commons, if all systems it is entangled with are extracted and manipulated across scales, and if weather modification itself depends on geological extraction?</p>
+    <p class="small muted">A visual musing in two parts. Draw a card, use the arrows below, or skip through the contents on the left of each page.</p>
+  </div>
+  <div class="visual">
+    <canvas class="wind" aria-hidden="true"></canvas>
+    <div class="cards-pair">
+      <a class="tarot" href="#a1">
+        <img src="images/tarot-cards/schwarze-pumpe.png" width="827" height="1063" alt="Card A: extraction modifying the weather. A cooling tower releasing dark clouds. ‘Schwarze Pumpe’ as geo-atmospheric infrastructure, myth and conspiracy.">
+      </a>
+      <a class="tarot" href="#b1">
+        <img src="images/tarot-cards/silver.png" width="827" height="1063" alt="Card B: extracting weather modification. A pale crystal. Highlighting the geo-bound entanglements behind weather modification.">
+      </a>
+    </div>
+    <p class="label vlabel">Cards: Anna-Lena Mueller. Wind in the background: synthetic simulation, not data.</p>
+  </div>
+</section>
+
+<!-- Part A -->
+<section class="page" id="a1" data-toc="Schwarze Pumpe" data-group="A" data-num="I" hidden>
+  <div class="text">
+    <p class="kicker">A · I · Extraction modifying the weather</p>
+    <h2>Schwarze Pumpe</h2>
+    <p>Schwarze Pumpe (the black pump) is a lignite-fired power station in Oberlausitz, Brandenburg, in eastern Germany. Seen from above, the clouds rising from its cooling towers stretch out over the landscape.
+    </p>
+    <p class="todo">To write: what the satellite images show, and on which days.</p>
+  </div>
+  <div class="visual">
+    <div class="orbit" tabindex="0" role="img" aria-roledescription="tiltable image" aria-label="Time-lapse of Sentinel-2 satellite images of Schwarze Pumpe on 17 days, July 2015 to December 2016, with the plume from the cooling towers. Drag, or use the arrow keys, to tilt and turn it.">
+      <div class="orbit-plane">
+        <img src="images/schwarze-pumpe-s2/schwarze-pumpe-clouds.webp" width="1000" height="1000" alt="" draggable="false">
+      </div>
+    </div>
+    <p class="label vlabel">Satellite images, observed: Copernicus Sentinel-2, 17 days, 2015–2016, 10 × 10 km. Contains modified Copernicus Sentinel data 2015–2016. Drag to tilt and turn. <button type="button" class="orbit-reset">Reset</button></p>
+  </div>
+</section>
+
+<section class="page" id="a2" data-toc="A cloud factory?" data-group="A" data-num="II" hidden>
+  <div class="text">
+    <p class="kicker">A · II · Extraction modifying the weather</p>
+    <h2>A cloud factory?</h2>
+    <p>What can be seen in the satellite imagery is the warm, moist air released by the cooling towers. As it rises and cools, its water vapour condenses into monumental clouds.
+With shifting local climates, the cooling towers of Schwarze Pumpe quickly became the source of a local metereological myth or conspiracy, spreading on social media. 
+The term 'cloud factory' is one of the ways the power station is described in a posts on Instagram. (include post in small image).
+Among the wider local public, people began to blame the power station for ongoing rain events and shifts in weather patterns.</p>
+    <p class="todo">To write - energy firms and newsoutlets trying to de-mystify the clouds.</p>
+  </div>
+  <div class="visual">
+    <video class="anim" src="media/a2-cloud-animation-schwarze-pumpe.webm" poster="media/a2-cloud-animation-schwarze-pumpe-poster.jpg" autoplay muted loop playsinline preload="auto" title="Click to pause or play" aria-label="Animation of the Schwarze Pumpe power station: clouds rise from its two cooling towers above the plant."></video>
+    <p class="label vlabel">3D animation, interpretive: Anna-Lena Mueller, Blender. Ground: satellite image (source and rights to check). Click to pause.</p>
+  </div>
+</section>
+
+<section class="page" id="a3" data-toc="Weather Machines" data-group="A" data-num="III" hidden>
+  <div class="text">
+    <p class="kicker">A · III · Extraction modifying the weather</p>
+    <h2>Weather Machines</h2>
+    <p>What weight does the myth of the weather altering lignite power plant hold when we are thinking of a weather commons? Is there a truth to the story of the power plant running on geological fuel to create rain?
+      Recently, much more research has emerged confirming that coal-fired power plants, especially lignite ones, do affect weather patterns. One way is through ultrafine particles (UFP), tiny particles in the exhaust, especially from newer filter systems. Schwarze Pumpe has been renovated.
+
+      Even the German weather service (DWD) has written about how the region’s power stations affect the weather.
+    </p>
+  </div>
+  <div class="visual">
+    <div class="rmap" id="rmap">
+      <div class="rmap-stage">
+        <canvas class="rmap-base" role="img" aria-label="Map of Lusatia around Schwarze Pumpe on 9 January 2015, 13:00 to 18:00 UTC: a Sentinel-2 satellite image with the DWD rain radar every 5 minutes on top, the wind as moving streaks, and particles drifting from the power station with the wind."></canvas>
+        <canvas class="rmap-fx" aria-hidden="true"></canvas>
+      </div>
+      <div class="rmap-controls">
+        <button type="button" class="rmap-play">Play</button>
+        <input type="range" class="rmap-scrub" min="0" max="60" value="0" aria-label="Time">
+        <span class="rmap-time"></span>
+        <span class="rmap-ground" role="group" aria-label="Satellite image">
+          <button type="button" data-ground="true" aria-pressed="true">True colour</button><button type="button" data-ground="false" aria-pressed="false">False colour</button>
+        </span>
+      </div>
+      <div class="rmap-key">
+        <span class="rmap-rain">Rain <i class="rmap-bar"></i> 0.24 · 1.5 · 6 mm/h</span>
+        <span><i class="rmap-streak"></i> Wind</span>
+        <span><i class="rmap-dot"></i> Particles from the cooling towers</span>
+      </div>
+    </div>
+    <p class="label vlabel">Rain radar, observed: DWD RADKLIM, every 5 minutes, 1 km. Wind, observed at four DWD stations (Cottbus, Hoyerswerda, Doberlug-Kirchhain, Görlitz) every 10 minutes, interpolated between them. Black particles: synthetic. Ground: Sentinel-2, 29 September 2026, not the day of the radar. Datenbasis: Deutscher Wetterdienst, CC BY 4.0. Contains modified Copernicus Sentinel data 2026.</p>
+  </div>
+</section>
+
+<section class="page" id="a6" data-toc="Reflections on myths and truths" data-group="A" data-num="VI" hidden>
+  <div class="text">
+    <p class="kicker">A · VI · Extraction modifying the weather</p>
+    <h2>Reflections</h2>
+    <p class="todo">To write: reflections on part A.</p>
+  </div>
+  <div class="visual">
+    <div class="placeholder">
+      <span class="ph-kind">Satellite time-lapse · observed</span>
+      <span class="ph-what">Cloud or weather maps from satellites, over time.</span>
+      <span class="ph-todo">To come: images, satellite, dates, licence.</span>
+    </div>
+  </div>
+</section>
+
+<!-- Part B -->
+<section class="page" id="b1" data-toc="Constructing a cloud" data-group="B" data-num="I" hidden>
+  <div class="text">
+    <p class="kicker">B · I · Extracting for weather modification</p>
+    <h2>Constructing a cloud</h2>
+    <p>Cloud seeding releases tiny particles into clouds, from aircraft or from the ground, for water droplets or ice to form on.</p>
+    <p class="todo">To write: the minerals cloud seeding needs, and the process.</p>
+  </div>
+  <div class="visual">
+    <div class="placeholder">
+      <span class="ph-kind">3D model · interpretive</span>
+      <span class="ph-what">A cloud.</span>
+      <span class="ph-todo">To come: Blender model.</span>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="b2" data-toc="Silver iodide" data-group="B" data-num="II" hidden>
+  <div class="text">
+    <p class="kicker">B · II · Extracting for weather modification</p>
+    <h2>Silver iodide</h2>
+    <p class="todo">To write: how silver iodide is made, where its silver and iodine are mined, and how.</p>
+  </div>
+  <div class="visual">
+    <div class="placeholder">
+      <span class="ph-kind">3D model · interpretive</span>
+      <span class="ph-what">A silver iodide particle.</span>
+      <span class="ph-todo">To come: Blender model by Anna-Lena.</span>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="b3" data-toc="Potassium iodide" data-group="B" data-num="III" hidden>
+  <div class="text">
+    <p class="kicker">B · III · Extracting for weather modification</p>
+    <h2>Potassium iodide</h2>
+    <p class="todo">To write: how potassium iodide is used, where it is mined, and how.</p>
+  </div>
+  <div class="visual">
+    <div class="placeholder">
+      <span class="ph-kind">3D model · interpretive</span>
+      <span class="ph-what">A potassium iodide particle.</span>
+      <span class="ph-todo">To come: Blender model by Anna-Lena.</span>
+    </div>
+  </div>
+</section>
+
+<!-- Sources and limits -->
+<section class="page" id="sources" data-toc="Sources and limits" data-group="end" hidden>
+  <div class="text">
+    <p class="kicker">Sources and limits</p>
+    <h2>Sources and limits</h2>
+    <p>Every image and model will say what it is: observed (measured or photographed), cartographic, quoted, modelled or interpretive.</p>
+    <p>What this essay cannot show: still to write.</p>
+    <p class="small muted">consequential weathering / earthly atmospheres · Anna-Lena Mueller · started 2026-11-07 · Realtime Weather working group, Weather Commons</p>
+  </div>
+  <div class="visual visual-text">
+    <ul class="sources">
+      <li>The question and the essay: interpretive. A working draft.</li>
+      <li>A · IV: Deutscher Wetterdienst, Thema des Tages, 2018: <a href="https://www.dwd.de/DE/wetter/thema_des_tages/2018/2/5.html">2/5</a> and <a href="https://www.dwd.de/DE/wetter/thema_des_tages/2018/2/6.html">2/6</a>. To read and quote.</li>
+      <li>A · IV: research on coal power stations, ultrafine particles and weather. To add.</li>
+      <li>A · I, A · VI: satellite images. To add: satellite, date, licence.</li>
+      <li>A · III: social media posts and headlines. To add: source and date for each.</li>
+      <li>A · V: map and geology of the Altmark gas field. To add.</li>
+      <li>B · I–III: sources on cloud seeding materials and where they are mined. To add.</li>
+      <li>3D models: made by Anna-Lena Mueller in Blender. Interpretive.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="flip">
+  <div id="steps" role="group" aria-label="Pages"></div>
+  <span id="where" aria-live="polite"></span>
+</footer>
+
+</div>
+<script src="essay.js"></script>
+<script src="radar-map.js"></script><script>window.onerror=(m,src,l)=>{document.title='ERR '+m+' @'+l};setTimeout(()=>{document.querySelector('.rmap-ground button[data-ground=false]').click();const s=document.querySelector('.rmap-scrub');s.value=30;s.dispatchEvent(new Event('input'))},4000)</script>
+</body>
+</html>
