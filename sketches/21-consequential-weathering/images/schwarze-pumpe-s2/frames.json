@@ -1,0 +1,202 @@
+{
+ "about": "Kraftwerk Schwarze Pumpe from above, 2015-2016: 17 clear-enough days where the cooling-tower plume or its shadow is visible. True colour, 10 x 10 km, north up, 10 m pixels, the power station in the centre. Observed.",
+ "centre": {
+  "lat": 51.53713,
+  "lon": 14.35329
+ },
+ "size_m": 10000,
+ "chosen_by": "Anna-Lena Mueller and Claude, 2026-11-15, by eye from 21 Sentinel-2 images covering the site with under 50 % cloud over the tile.",
+ "caution": "Whether a cloud near the towers formed from the plume can't be told from a single picture. The images are around 10:00-10:25 UTC, so they show only late morning.",
+ "source": "Copernicus Sentinel-2 Level-2A (ESA), via Microsoft Planetary Computer. Contains modified Copernicus Sentinel data 2015-2016.",
+ "downloaded": "2026-11-15",
+ "script": "scripts/fetch_schwarze_pumpe_s2.py",
+ "frames": [
+  {
+   "date": "2015-07-04",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20150704T101006_R022_T33UVT_20210411T133353",
+   "tile_cloud_pct": 0.2,
+   "local_cloud_pct": 0.2,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2015-07-04.jpg"
+  },
+  {
+   "date": "2015-07-24",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20150724T101006_R022_T33UVT_20210411T154648",
+   "tile_cloud_pct": 5.9,
+   "local_cloud_pct": 27.5,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2015-07-24.jpg"
+  },
+  {
+   "date": "2015-08-13",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20150813T101026_R022_T33UVT_20210411T204720",
+   "tile_cloud_pct": 24.8,
+   "local_cloud_pct": 10.9,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2015-08-13.jpg"
+  },
+  {
+   "date": "2015-08-23",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20150823T101016_R022_T33UVT_20210412T005949",
+   "tile_cloud_pct": 7.9,
+   "local_cloud_pct": 3.3,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2015-08-23.jpg"
+  },
+  {
+   "date": "2015-09-12",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20150912T101026_R022_T33UVT_20210412T082632",
+   "tile_cloud_pct": 2.2,
+   "local_cloud_pct": 5.7,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2015-09-12.jpg"
+  },
+  {
+   "date": "2015-12-31",
+   "time_utc": "10:14",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20151231T101432_R022_T33UVT_20210527T000638",
+   "tile_cloud_pct": 15.6,
+   "local_cloud_pct": 1.7,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2015-12-31.jpg"
+  },
+  {
+   "date": "2016-04-29",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160429T101032_R022_T33UVT_20210211T071405",
+   "tile_cloud_pct": 21.4,
+   "local_cloud_pct": 7.5,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-04-29.jpg"
+  },
+  {
+   "date": "2016-05-09",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160509T101032_R022_T33UVT_20210211T095244",
+   "tile_cloud_pct": 3.7,
+   "local_cloud_pct": 16.3,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-05-09.jpg"
+  },
+  {
+   "date": "2016-05-29",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160529T101032_R022_T33UVT_20210211T151956",
+   "tile_cloud_pct": 45.6,
+   "local_cloud_pct": 15.7,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-05-29.jpg"
+  },
+  {
+   "date": "2016-06-08",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160608T101032_R022_T33UVT_20210211T173903",
+   "tile_cloud_pct": 6.9,
+   "local_cloud_pct": 1.9,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-06-08.jpg"
+  },
+  {
+   "date": "2016-06-18",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160618T101032_R022_T33UVT_20210211T204611",
+   "tile_cloud_pct": 39.3,
+   "local_cloud_pct": 29.2,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-06-18.jpg"
+  },
+  {
+   "date": "2016-08-07",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160807T101032_R022_T33UVT_20210212T115954",
+   "tile_cloud_pct": 17.5,
+   "local_cloud_pct": 14.7,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-08-07.jpg"
+  },
+  {
+   "date": "2016-08-27",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160827T101022_R022_T33UVT_20210212T183822",
+   "tile_cloud_pct": 0.1,
+   "local_cloud_pct": 0.2,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-08-27.jpg"
+  },
+  {
+   "date": "2016-09-06",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160906T101022_R022_T33UVT_20210212T220457",
+   "tile_cloud_pct": 34.3,
+   "local_cloud_pct": 19.5,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-09-06.jpg"
+  },
+  {
+   "date": "2016-09-16",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160916T101022_R022_T33UVT_20210213T013200",
+   "tile_cloud_pct": 10.2,
+   "local_cloud_pct": 6.6,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-09-16.jpg"
+  },
+  {
+   "date": "2016-09-26",
+   "time_utc": "10:10",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20160926T101022_R022_T33UVT_20210213T044931",
+   "tile_cloud_pct": 27.9,
+   "local_cloud_pct": 11.8,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-09-26.jpg"
+  },
+  {
+   "date": "2016-12-05",
+   "time_utc": "10:14",
+   "satellite": "Sentinel-2A",
+   "tile": "33UVT",
+   "product": "S2A_MSIL2A_20161205T101402_R022_T33UVT_20210213T181731",
+   "tile_cloud_pct": 1.4,
+   "local_cloud_pct": 3.6,
+   "missing_pct": 0.0,
+   "file": "images/schwarze-pumpe-s2/2016-12-05.jpg"
+  }
+ ]
+}

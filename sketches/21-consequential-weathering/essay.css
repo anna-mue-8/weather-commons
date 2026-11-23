@@ -1,0 +1,302 @@
+/* Visual essay for sketch 21: one page at a time, flipped with the arrows and numbered pages at the bottom.
+   Header and footer are white with medium grey text; the content between is black with white text.
+   The contents open from the Page Navigation button, bottom right of the footer. On each page the image or model
+   on the left, and on the right the text box, an archive box for small images, and (if any) the legend
+   (start page: text on the left). */
+
+:root { --fg: #fff; --bg: #000; --muted: #aaa; --line: #fff; --soft: #161616; --bar-bg: #fff; --bar-fg: #808080; color-scheme: dark; }
+
+html { scrollbar-gutter: auto; }
+body { overflow: hidden; }
+
+.essay {
+  height: 100vh; height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas: "bar" "pages" "flip";
+}
+
+/* Header and footer: white, medium grey text */
+.bar, .flip { background: var(--bar-bg); color: var(--bar-fg); }
+.bar a:hover, #steps button:hover:not(:disabled) { color: #000; }
+.bar a, .flip a { color: inherit; }
+
+/* Header: the shared wordmark and site links, in one slim row */
+.bar { grid-area: bar; display: flex; align-items: center; gap: 8px 22px; padding: 8px 24px; white-space: nowrap; overflow: hidden; }
+.bar .brand { display: flex; flex-direction: row; align-items: baseline; gap: 14px; margin-right: auto; min-width: 0; }
+.bar .wordmark { font-size: 15px; }
+.bar .tagline { color: inherit; overflow: hidden; text-overflow: ellipsis; }
+.bar nav { display: flex; gap: 4px 20px; }
+.bar nav a { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; text-decoration: none; }
+.bar nav a:hover { text-decoration: underline; }
+
+/* The pages: only one shows at a time */
+main.pages { grid-area: pages; max-width: none; margin: 0; padding: 0 24px; min-height: 0; position: relative; }
+main.pages > .page { max-width: none; }
+.page {
+  height: 100%; display: grid; gap: 24px; padding: 24px 0;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+  grid-template-rows: fit-content(40%) minmax(2.5rem, 1fr) fit-content(55%);
+  grid-template-areas: "visual text" "visual archive" "visual legend";
+}
+.page[hidden] { display: none; }
+.page:not([hidden]) { animation: appear .45s ease both; }
+@keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+
+/* Text box, right */
+.text {
+  grid-area: text; border: 1px solid var(--line); padding: 20px 22px; align-self: start;
+  max-height: 100%; overflow-y: auto; background: var(--bg); position: relative; z-index: 1;
+  font-size: 12px; line-height: 1.5;
+}
+.text > :first-child { margin-top: 0; }
+.text > :last-child { margin-bottom: 0; }
+.page h2 {
+  font-size: 21px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; text-transform: none;
+  margin: 0 0 14px; padding: 0; border: 0;
+}
+.kicker { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin: 0 0 10px; color: var(--muted); }
+.todo { color: var(--muted); font-size: 11px; border-left: 1px dashed var(--line); padding-left: 10px; }
+.todo::before { content: "Draft note. "; font-weight: 600; }
+
+/* Archive box under the text box: small photos and clippings, one at a time (from media/media.json) */
+.archive { grid-area: archive; align-self: start; max-height: 100%; overflow-y: auto; border: 1px solid var(--line); padding: 12px 14px; font-size: 13px; line-height: 1.35; }
+.archive.empty { border-style: dashed; }
+.archive-head { display: flex; gap: 10px; align-items: baseline; margin-bottom: 8px; color: var(--muted); font-size: 11px; }
+.archive-head span:first-child { color: var(--fg); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-right: auto; }
+.archive.empty .archive-head span:first-child { color: var(--muted); }
+.archive-head button { font: 14px var(--font); color: var(--fg); background: none; border: 0; padding: 0 2px; cursor: pointer; }
+.archive-head button:hover { text-decoration: underline; }
+.archive img, .archive video { display: block; width: 100%; height: auto; max-height: 12rem; object-fit: contain; object-position: left; margin-bottom: 8px; background: var(--bg); }
+.archive p { margin: 0 0 4px; max-width: none; }
+.archive .hl { font-size: 17px; line-height: 1.2; font-weight: 700; margin: 2px 0 8px; }
+.archive .cr { font-size: 11px; color: var(--muted); }
+.archive-empty { color: var(--muted); }
+
+/* Click an archive image to see it large */
+.archive img { cursor: zoom-in; }
+.viewer { border: 0; padding: 0; background: none; max-width: 94vw; max-height: 94vh; overflow: visible; cursor: zoom-out; }
+.viewer::backdrop { background: rgba(0, 0, 0, .9); }
+.viewer img { display: block; max-width: 94vw; max-height: 88vh; width: auto; height: auto; }
+.viewer p { margin: 6px 0 0; color: var(--muted); font-size: 12px; max-width: none; }
+
+/* Start page: text box on the left, two sizes smaller than the other pages */
+.page.start { grid-template-columns: minmax(16rem, 24rem) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) !important; grid-template-areas: "text visual"; }
+.start .text { font-size: 14px; line-height: 1.5; }
+.start .text h1 { font-size: 22px; margin-bottom: 10px; }
+.start .text .lede { font-size: 16px; }
+.start .text .small { font-size: 12px; }
+.start .text .kicker { font-size: 11px; }
+
+/* Visual, left */
+.visual { grid-area: visual; position: relative; min-height: 0; display: grid; place-items: center; overflow: hidden; }
+.vlabel { position: absolute; left: 0; bottom: 0; margin: 0; color: var(--muted); z-index: 1; }
+.visual-text { place-items: start; overflow-y: auto; }
+
+.placeholder {
+  width: min(100%, 44rem); aspect-ratio: 4 / 3; max-height: 100%;
+  border: 1px dashed var(--line); padding: 24px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; text-align: center;
+}
+.ph-kind { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.ph-what { font-size: 19px; max-width: 26rem; }
+.ph-todo { font-size: 14px; color: var(--muted); }
+.placeholder .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: min(100%, 26rem); margin: 6px 0; }
+.placeholder .tiles span {
+  border: 1px solid var(--line); aspect-ratio: 1; display: grid; place-items: center;
+  font-size: 12px; color: var(--muted); transform: rotate(var(--r, 0deg));
+}
+.placeholder .tiles span:nth-child(odd) { --r: -2deg; }
+.placeholder .tiles span:nth-child(3n) { --r: 3deg; }
+.placeholder.layered { box-shadow: 14px -14px 0 -1px var(--bg), 14px -14px 0 0 var(--line); }
+.sources { font-size: 13px; line-height: 1.45; max-width: 52rem; }
+.sources h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin: 22px 0 6px; }
+.sources ul { margin: 0; padding-left: 1.2em; }
+.sources ul ul { margin-top: 4px; }
+.sources li { margin: 0 0 6px; max-width: none; }
+.sources .src-key { color: var(--muted); margin: 0; max-width: none; }
+
+/* Start page: faint wind behind two cards (Anna-Lena's card images).
+   The wind fills the whole content area, behind the text box too. */
+.start .visual { position: static; }
+.wind { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.start .vlabel { left: auto; right: 24px; bottom: 10px; font-size: 9px; }
+.cards-pair { position: relative; z-index: 1; display: flex; gap: clamp(16px, 4vw, 56px); justify-content: center; }
+.tarot {
+  width: clamp(11rem, 22vw, 21rem); max-height: 100%;
+  display: block; text-decoration: none; transition: transform .25s, filter .25s;
+  /* the cards are black on black: a thin white edge that follows their rounded corners */
+  filter: drop-shadow(0 0 1px rgba(255,255,255,.9)) drop-shadow(0 0 1px rgba(255,255,255,.6));
+}
+.tarot img { display: block; width: 100%; height: auto; }
+.tarot:hover, .tarot:focus-visible {
+  transform: translateY(-6px); outline: none;
+  filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 10px rgba(255,255,255,.45));
+}
+
+/* A · I: a satellite time-lapse that can be tilted and turned (no zoom) */
+.orbit {
+  width: min(100%, calc(100dvh - 190px)); aspect-ratio: 1;
+  display: grid; place-items: center; perspective: 1400px;
+  cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.orbit:active { cursor: grabbing; }
+.orbit:focus-visible { outline: 1px dashed var(--line); outline-offset: 4px; }
+.orbit-plane { width: 80%; transform-style: preserve-3d; transform: rotateX(var(--tilt, 0deg)) rotateZ(var(--turn, 0deg)); }
+.orbit-plane img { display: block; width: 100%; height: auto; pointer-events: none; }
+#a1 .vlabel { font-size: 11px; }
+.orbit-reset { font: inherit; color: inherit; background: none; border: 1px solid currentColor; padding: 0 6px; margin-left: 6px; cursor: pointer; }
+.orbit-reset:hover { color: var(--fg); }
+
+/* A · II: the 3D model with simulated clouds (cloud-sim.js). Drag to turn and tilt; no zoom. */
+.model3d { position: absolute; inset: 0; }
+.model3d canvas { display: block; width: 100%; height: 100%; border: 0; cursor: grab; }
+.model3d canvas:active { cursor: grabbing; }
+.model-status { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: var(--muted); font-size: 14px; max-width: none; }
+
+/* A · III: radar time-lapse (radar-player.js). Two square panels side by side, controls below. */
+.radar { width: min(100%, calc(2 * (100dvh - 360px) + 16px)); display: flex; flex-direction: column; gap: 10px; margin-bottom: 44px; font-size: 13px; }
+.radar-days { display: flex; gap: 8px; flex-wrap: wrap; }
+.radar-days button, .radar-play { font: 13px var(--font); color: var(--fg); background: var(--bg); border: 1px solid var(--line); padding: 3px 10px; cursor: pointer; }
+.radar-days button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.radar-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.radar-panels canvas { display: block; width: 100%; aspect-ratio: 1; border: 1px solid #333; background: #000; }
+.radar-cell { position: relative; }
+.radar-panels canvas.radar-fx { position: absolute; inset: 1px; width: calc(100% - 2px); height: calc(100% - 2px); aspect-ratio: auto; border: 0; background: none; pointer-events: none; }
+.radar-controls { display: flex; align-items: center; gap: 12px; }
+.radar-scrub { flex: 1; accent-color: #fff; }
+.radar-time { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.radar-stat, .radar-note { margin: 0; max-width: none; }
+.radar-note { color: var(--muted); }
+#a3 .visual { display: flex; align-items: stretch; }
+
+/* A · II: Anna-Lena's cloud animation (a square video), plays by itself; click to pause */
+.anim { display: block; width: min(100%, calc(100dvh - 190px)); aspect-ratio: 1; object-fit: contain; background: #000; cursor: pointer; }
+
+/* A · III: the radar map after the QGIS project (radar-map.js). Transparent background, faint grid. */
+.rmap { flex: 1; width: 100%; height: 100%; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+.rmap-stage { position: relative; flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.rmap-stage canvas { display: block; border: 0; background: none; transform-origin: 50% 85%; }
+.rmap-stage.tilted canvas { transform: perspective(1100px) rotateX(var(--tilt, 0deg)); }
+/* timeline under the map, after sketch 04's (colours inverted) */
+.rmap-bar { display: flex; align-items: flex-start; gap: 14px; flex: none; }
+.rmap-run { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding-top: 20px; }
+.rmap-play { white-space: nowrap; }
+.rmap-jump { display: inline-flex; gap: 2px; }
+.rmap-jump button { font: 14px var(--font); color: var(--fg); background: none; border: 0; padding: 0 4px; cursor: pointer; }
+.rmap-jump button:hover { color: var(--muted); }
+.rmap-tl { flex: 1; min-width: 0; height: 56px; display: block; border: 0; cursor: pointer; touch-action: none; }
+.rmap-tl:focus-visible { outline: 1px dashed var(--line); outline-offset: 2px; }
+.rmap-clock { display: flex; flex-direction: column; align-items: flex-end; padding-top: 12px; white-space: nowrap; }
+.rmap-time { font-size: 20px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.rmap-date { font-size: 10px; color: var(--muted); }
+.rmap-phase { margin: 0; max-width: none; color: var(--muted); font-size: 12px; min-height: 1.4em; flex: none; }
+.rmap-phase b { color: var(--fg); }
+.rmap-play, .rmap-reset, .rmap-group button, .rmap-stack button { font: 13px var(--font); color: var(--fg); background: var(--bg); border: 1px solid var(--line); padding: 3px 8px; cursor: pointer; }
+.rmap-group { display: inline-flex; }
+.rmap-group button + button { border-left: 0; }
+.rmap-group button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.rmap-group button { min-width: 28px; }
+/* view buttons: a column beside the legend */
+.rmap-tools { position: absolute; left: 0; bottom: 92px; z-index: 2; display: flex; flex-direction: column; gap: 8px; width: 7.2rem; }
+.rmap-tools .rmap-group { display: flex; }
+.rmap-tools .rmap-group button { flex: 1; min-width: 0; padding: 3px 0; }
+.rmap-stack { display: flex; flex-direction: column; }
+.rmap-stack button + button { border-top: 0; }
+.rmap-stack button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.rmap-tools button { width: 100%; text-align: center; }
+
+/* Legend: on pages that have one, at the bottom of the right column, under the archive box */
+.page-legend { position: absolute; left: 0; top: 0; z-index: 2; width: min(19rem, 46%); max-height: calc(100% - 300px); min-height: 0; overflow-y: auto; background: rgba(0,0,0,.72); border: 1px solid var(--line); padding: 10px 12px; font-size: 11px; line-height: 1.35; }
+.legend-more { margin-top: 8px; color: var(--muted); }
+.legend-more summary { cursor: pointer; font-size: 11px; }
+.legend-more summary:hover { color: var(--fg); }
+.page-legend p { margin: 0; max-width: none; }
+.legend-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px !important; }
+.legend-list { display: flex; flex-direction: column; gap: 4px; }
+.legend-list span { display: flex; align-items: center; gap: 7px; }
+.legend-list i { display: inline-block; width: 8px; height: 8px; flex: none; }
+.legend-sources { margin-top: 10px !important; color: var(--muted); font-size: 11px; }
+.legend-help { margin-top: 8px !important; color: var(--muted); font-size: 11px; }
+.page-legend sup { font-size: 8px; line-height: 0; vertical-align: 3px; margin-left: 1px; }
+.lg-rain { background: linear-gradient(90deg, #a7d7ff, #5f8eff, #d26eff, #ff74ff); }
+.lg-wind { background: #cfe6ff; }
+.lg-dots { background: #000; border-radius: 50%; box-shadow: 0 0 0 1px #888; width: 5px !important; height: 5px !important; margin: 0 1.5px; }
+.lg-cross { background: linear-gradient(#fff, #fff) center / 8px 2.6px no-repeat, linear-gradient(#fff, #fff) center / 2.6px 8px no-repeat; }
+.lg-ground { background: linear-gradient(135deg, #4d6b3c, #8a8f6a 50%, #3b4a5a); }
+.lg-vane { border: 1px solid #fff; border-radius: 50%; }
+.lg-focus { border: 1px dashed #fff; width: 9px !important; height: 7px !important; }
+.lg-mark { background: linear-gradient(#fff, #fff) center / 3px 8px no-repeat; }
+
+.archive-link img { cursor: pointer; }
+.archive-link:hover img { outline: 1px solid var(--fg); }
+
+/* Contents, left */
+/* Page navigation: the contents, in a pop-up from the footer's Page Navigation button (essay.js) */
+.nav-btn { margin-left: auto; font: 600 12px var(--font); text-transform: uppercase; letter-spacing: .06em; color: inherit; background: none; border: 1px solid currentColor; padding: 3px 10px; cursor: pointer; flex: none; }
+.nav-btn:hover, .nav-btn[aria-expanded="true"] { color: #000; }
+.contents { display: none; position: fixed; right: 24px; bottom: 56px; z-index: 30; width: min(300px, calc(100vw - 32px)); max-height: calc(100dvh - 130px); overflow-y: auto; background: #000; border: 1px solid #fff; padding: 16px 18px; font-size: 14px; }
+.contents.open { display: block; }
+.contents ol { list-style: none; margin: 0; padding: 0; }
+.contents .group { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin: 18px 0 6px; max-width: none; }
+.contents .group:first-child { margin-top: 0; }
+.contents li { max-width: none; }
+.contents li.end { margin-top: 18px; padding-top: 10px; border-top: 1px solid var(--line); }
+.contents a { display: grid; grid-template-columns: 2.2em 1fr; padding: 3px 0; text-decoration: none; }
+.contents a .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+.contents a:hover { text-decoration: underline; }
+.contents a[aria-current="page"] { font-weight: 700; }
+.contents a[aria-current="page"] .n::before { content: "● "; font-size: 9px; vertical-align: 2px; }
+
+/* Footer: arrows and numbered pages, as in sketch 04 (without its timeline) */
+.flip { grid-area: flip; display: flex; align-items: center; gap: 8px 20px; padding: 10px 24px; min-width: 0; }
+#steps { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; }
+#steps button {
+  font: 13px/1 var(--font); font-variant-numeric: tabular-nums;
+  width: 24px; height: 24px; padding: 0; text-align: center; cursor: pointer;
+  background: none; color: inherit; border: 0;
+}
+#steps button[aria-current="true"] { background: var(--bar-fg); color: var(--bar-bg); }
+#steps button:disabled { opacity: .35; cursor: default; }
+#steps .arrow { font-size: 16px; opacity: 1; }
+#steps .part { font-size: 13px; line-height: 24px; font-weight: 700; margin: 0 4px 0 12px; padding-left: 12px; border-left: 1px solid currentColor; }
+#steps .part:first-of-type { margin-left: 4px; }
+#where { font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Narrow screens: visual on top, then the text and the archive, contents behind a button */
+@media (max-width: 860px) {
+  .rmap-stage .page-legend, .rmap-stage .rmap-tools { position: static; width: 100%; max-height: none; margin-top: 8px; }
+  .rmap-stage { flex-direction: column; overflow: visible; }
+  .essay { grid-template-rows: auto minmax(0, 1fr) auto; }
+  .bar { padding: 8px 16px; }
+  .bar .tagline, .bar nav { display: none; }
+  main.pages { padding: 0 16px; overflow-y: auto; }
+  .contents { right: 16px; bottom: 52px; }
+  .page, .page.start { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-template-areas: "visual" "text" "archive" "legend"; height: auto; padding: 12px 0; align-content: start; }
+  .archive { max-height: none; }
+  .visual { min-height: 42vh; }
+  .start .visual { position: relative; }
+  .text { max-height: none; }
+  .visual { align-content: center; gap: 12px; }
+  .vlabel, .start .vlabel { position: static; }
+  .orbit { width: 100%; }
+  .anim { width: 100%; }
+  .model3d { position: relative; inset: auto; width: 100%; height: 62vh; }
+  .radar { width: 100%; margin-bottom: 0; }
+  .rmap { height: auto; }
+    .rmap-tools { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .rmap-tools > * { flex: 1; }
+  .rmap-stack { flex-direction: row; }
+  .rmap-stack button + button { border-top: 1px solid var(--line); border-left: 0; }
+  .rmap-time { font-size: 16px; }
+  .radar-panels { gap: 8px; }
+  .tarot { width: clamp(8.5rem, 40vw, 13rem); }
+  .flip { padding: 8px 16px; flex-wrap: wrap; }
+  #where { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page:not([hidden]) { animation: none; }
+  .tarot { transition: none; }
+}

@@ -1,5 +1,0 @@
-pystac-client
-planetary-computer
-rasterio
-numpy
-pillow
